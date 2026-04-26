@@ -1,0 +1,185 @@
+Act as an Elite System Architect and Principal Frontend Engineer. Build a production-ready, ultra-lightweight "Design Infrastructure Engine" SaaS tool. 
+
+The goal is to take a single "Primary Hex Color" from the user and automatically calculate a complete, mathematically flawless Design System. 
+
+Tech Stack (Strictly Lightweight & Fast):
+- Build Tool: Vite.
+- Language: Vanilla TypeScript (Strict typing, Object-Oriented).
+- Framework: NONE (Pure DOM manipulation).
+- Styling: Tailwind CSS.
+- Storage: LocalStorage.
+
+Strict Architectural & AI Generation Rules (Crucial):
+To ensure the system is extremely easy to edit, modify, and scale:
+1. Micro-Modular Architecture: Strictly apply the Single Responsibility Principle. 
+2. File Size Limits: Keep every single file under 150-200 lines of code. If a file gets larger, split it into smaller utility files.
+3. Separation of Concerns: Completely isolate the mathematical logic, state management, DOM manipulation, and export logic into separate directories (e.g., `/src/engine`, `/src/ui`, `/src/utils`, `/src/exports`).
+4. Extensibility: Write code using interfaces and base classes so new features or color formats can be plugged in later without rewriting existing logic.
+
+Module 1: Advanced Color Theory Engine (`/src/engine/ColorMath.ts`)
+This is the core mathematical brain.
+1. Primary Color Space: Utilize OKLCH or OKLAB for all color calculations (hue shifting, lightening, darkening) to ensure perceptually uniform transitions and prevent muddy colors.
+2. Mandatory Formats: For EVERY single color token generated in the matrix, the engine MUST output exact values in `#HEXA`, `#RGBA`, and `#HSLA` formats simultaneously.
+3. APCA Contrast Algorithm (WCAG 3.0): Implement the Advanced Perceptual Contrast Algorithm. Automatically determine the perfect high-contrast text color for ANY generated background.
+4. Non-Linear Interpolation: Generate the 50-950 Tailwind scale using Bezier curves or custom easing functions. Do not divide lightness linearly.
+5. Dynamic Saturation Management: For dark mode surfaces (800, 900, 950 shades), inject 5-10% of the primary hue but mathematically clamp the saturation to prevent eye strain.
+
+Module 2: Palette & System Generation (`/src/engine/PaletteGenerator.ts`)
+1. Harmony Generation: Calculate Secondary and Accent palettes based on mathematical rules (Analogous, Complementary, Triadic).
+2. Data Visualization Palette: Calculate a sub-palette of 5-8 highly distinct categorical colors mathematically derived from the primary base.
+3. Semantic System: Generate Success, Error, Warning, and Info colors tuned to harmonize with the brand base.
+
+Module 3: UI/UX & State Management (`/src/ui/`)
+1. Real-Time UI: Sleek, dark-themed Tailwind CSS interface. Bind color input to real-time events for zero-lag calculation.
+2. Comprehensive Token Display: The UI must display the 50-950 scale, Semantic colors, and Data Viz colors. Every color swatch must visibly display its `#HEXA`, `#RGBA`, and `#HSLA` codes.
+3. History Panel: Save the last 10 generated primary colors in LocalStorage. Allow users to restore past sessions instantly.
+
+Module 4: 1-Click Export Engine (`/src/exports/`)
+Instantly generate and copy the following formats:
+1. CSS Variables: Output `:root` (Light) and `.dark` (Dark mode) tokens using all necessary formats.
+2. Tailwind Config: Output a valid JSON object for `tailwind.config.js`.
+3. W3C Design Tokens: Output a strict JSON format compatible with W3C Design Token standards.
+
+Security & Performance:
+- Strict input sanitization (Regex validation for inputs).
+- Highly efficient DOM batch updates to avoid layout thrashing.
+
+Output Instructions:
+Do not provide a generic overview. Scaffold the Vite project folder structure exactly as requested, and provide the complete, modular TypeScript code for the Engine, UI, and Export modules file-by-file.
+
+
+
+
+Act as an Elite System Architect and Principal Frontend Engineer. I am building a "Design Infrastructure Engine" SaaS tool. I need you to write the exact Vanilla TypeScript code for "Module 1: Advanced Color Theory Engine".
+
+Task: 
+Create a highly modular, mathematically precise color calculation engine inside a `/src/engine/` directory. Do not write any UI or DOM manipulation code. Focus purely on mathematical algorithms, color space conversions, and strict typing.
+
+Strict Architectural Rules:
+1. Micro-Modular Architecture (SRP): Every file must have a single responsibility. Keep file sizes under 150 lines of code. Split logic into smaller utility files if necessary (e.g., `OklchConverter.ts`, `ContrastApca.ts`, `ScaleGenerator.ts`).
+2. Pure Functions: All color math calculations must be pure functions with predictable outputs. No side effects.
+3. Strict Typing: Use advanced TypeScript interfaces and custom types for all color formats.
+
+Core Logic Requirements:
+1. Base Color Space (OKLCH): All internal calculations for lightening, darkening, and hue-shifting MUST be done in the OKLCH or OKLAB color space to guarantee perceptually uniform transitions and prevent muddy colors.
+2. Mandatory Output Formats: Every generated color object MUST simultaneously return its exact values in `#HEXA`, `#RGBA`, and `#HSLA` formats. Create an interface for this output structure.
+3. APCA Contrast Algorithm (WCAG 3.0): Implement the Advanced Perceptual Contrast Algorithm. Write a utility function that takes a background color and returns the optimal high-contrast text color (either extreme dark or extreme light) to guarantee accessibility.
+4. Non-Linear Interpolation: Write a scale generator for the 50-950 Tailwind steps. Do not use linear division for lightness. Use a custom easing function or Bezier curve logic to ensure smooth, natural transitions between steps.
+5. Dynamic Saturation Clamping: When generating dark mode surface colors (e.g., shades 800, 900, 950), inject 5-10% of the primary base hue, but mathematically clamp/reduce the saturation to prevent eye strain.
+
+Code Quality & Security:
+- Implement strict Regex validation to sanitize user inputs for Hex, RGB, and HSL formats before processing.
+- Handle edge cases gracefully (e.g., invalid color inputs should return a safe fallback or throw a descriptive custom error).
+- Follow DRY and KISS principles strictly.
+
+Output Instructions:
+1. Show the precise folder structure for `/src/engine/`.
+2. Provide the complete, production-ready Vanilla TypeScript code for each file in this module. Ensure the code is easy to edit, extend, and plug new color formats into later.
+
+
+Act as an Elite System Architect and Principal Frontend Engineer. I am building a "Design Infrastructure Engine" SaaS tool. I need you to write the exact Vanilla TypeScript code for "Module 2: Palette & System Generation".
+
+Task: 
+Create a highly modular palette generation system inside the `/src/engine/` directory. This module must depend on the core mathematical functions and interfaces defined in Module 1 (ColorTheoryEngine). Do not write any UI or DOM manipulation code.
+
+Strict Architectural Rules:
+1. Micro-Modular Architecture (SRP): Every file must have a single responsibility. Keep file sizes under 150 lines of code. Split logic into files like `HarmonyGenerator.ts`, `DataVizGenerator.ts`, and `SemanticGenerator.ts`.
+2. Seamless Integration: Ensure this module uses the `#HEXA`, `#RGBA`, and `#HSLA` output structure and the OKLCH-based engine from Module 1.
+3. Extensibility: Use a plugin-like pattern or Strategy Pattern for different harmony rules so new ones can be added easily.
+
+Core Logic Requirements:
+1. Harmony Generator (`HarmonyGenerator.ts`): 
+   - Implement functions to generate 'Analogous', 'Complementary', and 'Triadic' palettes.
+   - All variations must be mathematically derived from the primary base color using hue-rotation in the OKLCH space.
+2. Data Visualization Palette (`DataVizGenerator.ts`): 
+   - Write an algorithm to generate a sub-palette of 5-8 categorical colors.
+   - These colors must be highly distinct from each other but remain harmonious with the primary brand color. Use golden-angle or specific degree shifts in the hue wheel.
+3. Semantic System (`SemanticGenerator.ts`): 
+   - Generate "Success", "Error", "Warning", and "Info" color sets.
+   - Crucial: These must not be generic colors. They must be hue-shifted and intensity-matched to the primary color to ensure a cohesive Design System look. 
+   - Each semantic color must also have its own 50-950 scale and high-contrast text color (calculated via APCA from Module 1).
+4. Full Matrix Assembly: Create a central `PaletteRegistry.ts` that orchestrates all generators and returns a single, strictly-typed "DesignSystemTokens" object containing all brand, neutral, semantic, and data-viz colors in HEXA, RGBA, and HSLA formats.
+
+Code Quality:
+- Ensure strict TypeScript typing for the entire palette object.
+- Functions must be pure and well-documented with technical comments explaining the color theory math behind each decision.
+- Follow KISS and DRY principles religiously.
+
+Output Instructions:
+1. Show the folder structure for `/src/engine/` (including where these new files sit).
+2. Provide the complete, production-ready Vanilla TypeScript code for each file in this module.
+
+
+Act as an Elite System Architect and Principal Frontend Engineer. I am building a "Design Infrastructure Engine" SaaS tool. I need you to write the exact Vanilla TypeScript code for "Module 3: UI & State Management".
+
+Task: 
+Create a highly modular, efficient, and interactive User Interface inside a `/src/ui/` directory. This module must orchestrate the data from Module 1 and Module 2, handle user input in real-time, manage the application state (including LocalStorage persistence), and perform pure DOM manipulation without any framework.
+
+Strict Architectural Rules:
+1. Micro-Modular Architecture (SRP): Every file must have a single responsibility. Keep file sizes strictly under 200 lines of code. Split logic into files like `AppState.ts`, `MainLayout.ts`, `TokenRenderer.ts`, and `HistoryPanel.ts`.
+2. Pure DOM Manipulation: Do not use innerHTML for rendering dynamic content (to prevent XSS and improve performance). Use `document.createElement`, `classList`, and `textContent`.
+3. Strict Isolation: Keep HTML structures separate from the data-binding logic.
+4. Tailwind CSS Integration: Apply Tailwind classes directly in the TypeScript code during element creation.
+
+Core Logic Requirements:
+1. State Management (`AppState.ts`):
+   - Create a central class to manage application state: current primary color, selected harmony rule, generated tokens (the object from Module 2), and history.
+   - Implement LocalStorage persistence to save the last session state and a history of the last 10 generated primary colors.
+   - Use a simple Observer pattern or custom event emitter to notify UI components of state changes.
+2. App Orchestration & Events (`AppOrchestrator.ts`):
+   - Bind to the native `<input type="color">` 'input' event for zero-lag calculation.
+   - On input, call Module 1 (math) -> Module 2 (palette generation) -> update State -> trigger UI re-render.
+3. Main Layout & Input (`MainLayout.ts`):
+   - Build a sleek, dark-themed SaaS-grade overall structure using Tailwind.
+   - Create the color picker input component and any harmony selection controls (e.g., dropdowns).
+4. Comprehensive Token Display (`TokenRenderer.ts`):
+   - This file will render the actual color swatches for the complete matrix (50-950 scales, semantics, data viz).
+   - Crucial Requirement: EVERY single color swatch must explicitly and legibly display its `#HEXA`, `#RGBA`, and `#HSLA` codes.
+   - Use the APCA contrast utility from Module 1 to determine the exact color of the text displayed on top of each swatch.
+5. History Panel (`HistoryPanel.ts`):
+   - Render a clickable list of the last 10 colors from `AppState`.
+   - Clicking a history item must instantly update the central state and regenerate the entire UI.
+
+Performance & Security:
+- Implement batch DOM updates using `requestAnimationFrame` or `DocumentFragment` to avoid layout thrashing.
+- Strict input sanitization of color codes before state updates.
+
+Output Instructions:
+1. Show the folder structure for `/src/ui/` and explain how it integrates with `/src/engine/`.
+2. Provide the complete, production-ready Vanilla TypeScript code for each file in this module, keeping files small and highly readable.
+
+
+
+Act as an Elite System Architect and Principal Frontend Engineer. I am building a "Design Infrastructure Engine" SaaS tool. I need you to write the exact Vanilla TypeScript code for "Module 4: 1-Click Export Engine".
+
+Task:
+Create a highly modular export system inside the `/src/exports/` directory. This module takes the final "DesignSystemTokens" object generated by Module 2 and converts it into standard external formats (CSS, Tailwind, W3C) for seamless developer handoff. Do not write UI rendering code here, just the string generation and clipboard logic.
+
+Strict Architectural Rules:
+1. Micro-Modular Architecture (SRP): Every file must have a single responsibility. Keep file sizes strictly under 150 lines of code. Split logic into `CssExporter.ts`, `TailwindExporter.ts`, `W3cTokenExporter.ts`, and `ClipboardManager.ts`.
+2. Format Consistency: The exported code must accurately reflect the exact `#HEXA`, `#RGBA`, and `#HSLA` values calculated by the engine.
+3. Decoupling: The exporter files must act as pure utility classes or functions that take the token object as an input parameter and return a perfectly formatted string.
+
+Core Logic Requirements:
+1. CSS Variables Exporter (`CssExporter.ts`):
+   - Traverse the nested token object and generate a strictly formatted CSS string.
+   - Output a `:root` block for the light theme and a `.dark` class/media query block for the dark mode overrides.
+   - Structure the variable names logically (e.g., `--color-primary-500`, `--color-surface-dark`).
+2. Tailwind Config Exporter (`TailwindExporter.ts`):
+   - Map the generated 50-950 scales, semantic palettes, and data-viz colors into a structured JSON string.
+   - The output must exactly match the structure of a Tailwind `theme.extend.colors` object, ready to be copy-pasted into `tailwind.config.js` or `tailwind.config.ts`.
+3. W3C Design Tokens Exporter (`W3cTokenExporter.ts`):
+   - Parse the internal tokens into the strict JSON format defined by the W3C Design Tokens Community Group.
+   - Ensure proper `$value` and `$type` (e.g., "color") fields are populated so the output can be directly imported into Figma plugins or Style Dictionary.
+4. Clipboard Manager (`ClipboardManager.ts`):
+   - Create a robust utility class to handle copying data to the user's clipboard using the modern `navigator.clipboard.writeText()` API.
+   - Include secure error handling (and a fallback mechanism if necessary) and return a Promise so the UI module can trigger a "Copied to Clipboard" toast/notification.
+
+Code Quality & Security:
+- Output strings must be perfectly formatted with proper indentation (use `JSON.stringify(obj, null, 2)` for JSON, and clean template literals for CSS).
+- Ensure generated CSS variable names are sanitized to prevent invalid CSS syntax.
+- Follow KISS and DRY principles.
+
+Output Instructions:
+1. Show the folder structure for `/src/exports/`.
+2. Provide the complete, production-ready Vanilla TypeScript code for each file in this module.

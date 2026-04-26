@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary-50: #f8fafc;
+    --color-primary-100: #f1f5f9;
+    --color-primary-500: #3b82f6;
+    --color-primary-900: #1e3a8a;
+    --color-primary-950: #172554;
+  }
+}
