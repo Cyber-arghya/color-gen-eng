@@ -2,7 +2,7 @@ import type { Oklch } from 'culori';
 import { ColorMath } from './ColorMath';
 import type { ColorScale } from './ColorTypes';
 
-export type HarmonyType = 'analogous' | 'complementary' | 'triadic';
+export type HarmonyType = 'analogous' | 'complementary' | 'triadic' | 'split-complementary' | 'tetradic' | 'square';
 
 export class HarmonyGenerator {
   /**
@@ -20,6 +20,15 @@ export class HarmonyGenerator {
         break;
       case 'triadic':
         shift = 120; // 1/3 around the wheel
+        break;
+      case 'split-complementary':
+        shift = 150;
+        break;
+      case 'tetradic':
+        shift = 60;
+        break;
+      case 'square':
+        shift = 90;
         break;
     }
 
@@ -44,6 +53,15 @@ export class HarmonyGenerator {
         break;
       case 'triadic':
         shift = 240; // 2/3 around the wheel
+        break;
+      case 'split-complementary':
+        shift = 210;
+        break;
+      case 'tetradic':
+        shift = 240;
+        break;
+      case 'square':
+        shift = 270;
         break;
     }
 

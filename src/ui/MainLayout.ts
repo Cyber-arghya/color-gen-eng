@@ -64,7 +64,7 @@ export class MainLayout {
     harmonySelect.id = 'harmony-select';
     harmonySelect.className = 'w-full bg-gray-800 text-white border border-gray-700 rounded-lg p-3 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer';
     
-    ['complementary', 'analogous', 'triadic'].forEach(rule => {
+    ['complementary', 'analogous', 'triadic', 'split-complementary', 'tetradic', 'square'].forEach(rule => {
       const option = document.createElement('option');
       option.value = rule;
       option.textContent = rule.charAt(0).toUpperCase() + rule.slice(1);
