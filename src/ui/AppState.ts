@@ -65,7 +65,7 @@ export class AppState {
     if (this.history[0] === hex) return;
     
     this.history.unshift(hex);
-    if (this.history.length > 10) {
+    if (this.history.length > 12) {
       this.history.pop();
     }
   }

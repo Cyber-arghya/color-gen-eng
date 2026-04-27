@@ -19,7 +19,7 @@ export class MainLayout {
     // Header
     const header = document.createElement('div');
     const logo = document.createElement('h1');
-    logo.className = 'text-xl font-black bg-gradient-to-br from-blue-400 to-purple-500 bg-clip-text text-transparent';
+    logo.className = 'text-2xl font-black bg-gradient-to-br from-pink-500 via-violet-500 to-blue-500 bg-clip-text text-transparent';
     logo.textContent = 'Brand Color Generator';
     header.appendChild(logo);
     sidebar.appendChild(header);
@@ -86,13 +86,12 @@ export class MainLayout {
     // Export buttons will be injected by AppOrchestrator
     controls.appendChild(exportGroup);
 
-    sidebar.appendChild(controls);
-
     // History Panel Container
     const historyContainer = document.createElement('div');
     historyContainer.id = 'history-panel';
-    historyContainer.className = 'mt-auto pt-8 border-t border-gray-800';
-    sidebar.appendChild(historyContainer);
+    controls.appendChild(historyContainer);
+
+    sidebar.appendChild(controls);
 
     // Main Content
     const main = document.createElement('main');
