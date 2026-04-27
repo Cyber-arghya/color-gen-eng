@@ -11,7 +11,7 @@ export class GlobalPreview {
     const el = document.getElementById(containerId);
     if (!el) throw new Error(`Container ${containerId} not found`);
     this.container = el;
-    
+
     AppState.getInstance().subscribe(() => {
       requestAnimationFrame(() => this.render());
     });
@@ -26,7 +26,7 @@ export class GlobalPreview {
     if (!state.tokens) return;
 
     const tokens = state.tokens;
-    
+
     // Dynamic Mapping based on Theme State
     const map = this.isDarkMode ? {
       background: tokens.neutral['950'],
@@ -62,9 +62,9 @@ export class GlobalPreview {
           </h2>
           
           <button id="theme-toggle-btn" class="px-3 py-1.5 text-sm font-medium bg-gray-800 hover:bg-gray-700 text-white rounded-md border border-gray-700 transition flex items-center gap-2">
-            ${this.isDarkMode 
-              ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42 1.42"/></svg> Switch to Light' 
-              : '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Switch to Dark'}
+            ${this.isDarkMode
+        ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42 1.42"/></svg> Switch to Light'
+        : '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Switch to Dark'}
           </button>
         </div>
         
@@ -110,6 +110,7 @@ export class GlobalPreview {
               ${this.createVariableRow('Text', map.text.hex)}
               ${this.createVariableRow('Primary', map.primary.hex)}
               ${this.createVariableRow('Secondary', map.secondary.hex)}
+              ${this.createVariableRow('Accent-500', map.accent.hex)}
             </div>
 
           </div>
