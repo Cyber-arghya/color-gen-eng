@@ -20,7 +20,7 @@ export class MainLayout {
     const header = document.createElement('div');
     const logo = document.createElement('h1');
     logo.className = 'text-xl font-black bg-gradient-to-br from-blue-400 to-purple-500 bg-clip-text text-transparent';
-    logo.textContent = 'Design Infra Engine';
+    logo.textContent = 'Brand Color Generator';
     header.appendChild(logo);
     sidebar.appendChild(header);
 
