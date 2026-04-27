@@ -110,7 +110,7 @@ export class GlobalPreview {
               ${this.createVariableRow('Text', map.text.hex)}
               ${this.createVariableRow('Primary', map.primary.hex)}
               ${this.createVariableRow('Secondary', map.secondary.hex)}
-              ${this.createVariableRow('Accent-500', map.accent.hex)}
+              ${this.createVariableRow('Accent', map.accent.hex)}
             </div>
 
           </div>
