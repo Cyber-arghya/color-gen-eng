@@ -51,6 +51,10 @@ export class AppOrchestrator {
         state.setPrimaryColor(val);
       });
 
+      colorInput.addEventListener('change', () => {
+        state.addCurrentToHistory();
+      });
+
       hexInput.addEventListener('input', (e) => {
         let val = (e.target as HTMLInputElement).value;
         if (!val.startsWith('#')) val = '#' + val;
@@ -60,6 +64,10 @@ export class AppOrchestrator {
           colorInput.value = val;
           state.setPrimaryColor(val);
         }
+      });
+
+      hexInput.addEventListener('change', () => {
+        state.addCurrentToHistory();
       });
     }
 

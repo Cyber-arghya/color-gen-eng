@@ -39,9 +39,13 @@ export class AppState {
   setPrimaryColor(hex: string) {
     if (this.primaryColor !== hex) {
       this.primaryColor = hex;
-      this.addToHistory(hex);
       this.regenerateTokens();
     }
+  }
+
+  addCurrentToHistory() {
+    this.addToHistory(this.primaryColor);
+    this.notify();
   }
 
   setHarmonyRule(rule: HarmonyType) {
